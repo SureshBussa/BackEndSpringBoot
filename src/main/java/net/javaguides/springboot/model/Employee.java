@@ -30,12 +30,16 @@ public class Employee {
 	@Column(name="dob")
 	private String dob;
 	
+	@Lob
+	@Column(name="image", columnDefinition = "LONGBLOB")
+	private byte [] image;
+	
 	
 	public Employee() {
 		
 	}
 	
-	public Employee(String firstName, String lastName, String emailId,String department,String salary,String gender,String dob) {
+	public Employee(String firstName, String lastName, String emailId,String department,String salary,String gender,String dob, byte[] image) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -44,9 +48,18 @@ public class Employee {
 		this.salary = salary;
 		this.gender = gender;
 		this.dob = dob;
+		this.image = image;
 
 		
 	}
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
 	public long getId() {
 		return id;
 	}
